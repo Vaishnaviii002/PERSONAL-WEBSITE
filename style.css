@@ -63,7 +63,7 @@ body {
   height: 520px;
   left: -120px;
   top: -120px;
-   background: rgba(145, 73, 212, 0.2);
+  background: rgba(145, 73, 212, 0.2);
   animation: orbOne 7s ease-in-out infinite alternate;
 }
 
@@ -446,119 +446,118 @@ body {
   text-align: left;
 }
 
-.skills-blocks {
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
   width: 100%;
   max-width: 1050px;
-  display: flex;
-  flex-direction: column;
-  gap: 26px;
 }
 
-.skill-box {
-  position: relative;
-  width: 100%;
-  min-height: 120px;
-  padding: 30px;
-  border-radius: 28px;
-  cursor: pointer;
-  overflow: hidden;
-  background: rgba(255, 255, 255, 0.075);
-  border: 1px solid rgba(242, 226, 224, 0.15);
+/* card */
+.sk-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(242, 226, 224, 0.12);
+  border-radius: 22px;
+  padding: 1.6rem 1.5rem;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
+  transition: border-color 0.28s ease, background 0.28s ease, transform 0.28s ease;
+}
+
+.sk-card:hover {
+  background: rgba(255, 255, 255, 0.10);
+  border-color: rgba(242, 226, 224, 0.26);
+  transform: translateY(-5px);
+}
+
+.sk-wide {
+  grid-column: span 2;
+}
+
+/* card header */
+.sk-top {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 26px;
-  opacity: 0.78;
-  transition:
-    min-height 0.45s ease,
-    opacity 0.35s ease,
-    transform 0.35s ease,
-    background 0.35s ease,
-    border-color 0.35s ease,
-    box-shadow 0.35s ease;
+  gap: 10px;
+  margin-bottom: 1rem;
 }
 
-.skill-box::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    120deg,
-    transparent 10%,
-    rgba(255, 255, 255, 0.08),
-    transparent 65%
-  );
-  transform: translateX(-120%);
-  opacity: 0;
+.sk-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
-.skill-box:hover::before,
-.skill-box.full::before {
-  animation: skillShine 1s ease forwards;
-  opacity: 1;
+.sk-icon.fe { background: rgba(125, 211, 252, 0.12); color: #7dd3fc; }
+.sk-icon.be { background: rgba(196, 181, 253, 0.12); color: #c4b5fd; }
+.sk-icon.db { background: rgba(110, 231, 183, 0.12); color: #6ee7b7; }
+.sk-icon.dv { background: rgba(252, 165, 165, 0.12); color: #fca5a5; }
+.sk-icon.ai { background: rgba(249, 168, 212, 0.12); color: #f9a8d4; }
+
+.sk-cat {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
 }
 
-.skill-box:hover {
-  opacity: 1;
-  transform: translateY(-5px);
-  border-color: rgba(242, 226, 224, 0.32);
-}
+.sk-cat.fe { color: #7dd3fc; }
+.sk-cat.be { color: #c4b5fd; }
+.sk-cat.db { color: #6ee7b7; }
+.sk-cat.dv { color: #fca5a5; }
+.sk-cat.ai { color: #f9a8d4; }
 
-.skill-box.active {
-  opacity: 1;
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(242, 226, 224, 0.34);
-}
-
-.skill-box.full {
-  min-height: 260px;
-  opacity: 1;
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(242, 226, 224, 0.42);
-  box-shadow:
-    0 35px 110px rgba(0, 0, 0, 0.28),
-    0 0 70px rgba(209, 162, 165, 0.13);
-}
-
-.skill-box span {
-  color: rgba(242, 226, 224, 0.55);
-  font-size: 14px;
-  font-weight: 900;
-  letter-spacing: 4px;
-}
-
-.skill-box h3 {
+.sk-name {
+  font-size: 17px;
+  font-weight: 600;
   color: #f2e2e0;
-  font-size: clamp(28px, 3vw, 52px);
+  margin: 0 0 0.9rem;
+  letter-spacing: -0.3px;
+}
+
+/* skill list */
+.sk-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sk-list-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 2.5rem;
+}
+
+.sk-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13.5px;
+  color: rgba(242, 226, 224, 0.72);
   line-height: 1;
-  letter-spacing: -1px;
-  text-align: right;
 }
 
-.skill-box p {
-  max-height: 0;
-  opacity: 0;
-  overflow: hidden;
-  margin-top: 0;
-  max-width: 520px;
-  color: rgba(242, 226, 224, 0.66);
-  font-size: 15px;
-  line-height: 1.7;
-  text-align: right;
-  transition: 0.35s ease;
+.sk-list li::before {
+  content: '';
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  flex-shrink: 0;
 }
 
-.skill-box.full h3 {
-  font-size: clamp(42px, 5vw, 82px);
-}
-
-.skill-box.full p {
-  max-height: 120px;
-  opacity: 1;
-  margin-top: 20px;
-}
+.sk-list li.fe::before { background: #7dd3fc; }
+.sk-list li.be::before { background: #c4b5fd; }
+.sk-list li.db::before { background: #6ee7b7; }
+.sk-list li.dv::before { background: #fca5a5; }
+.sk-list li.ai::before { background: #f9a8d4; }
 
 /* =========================
    PROJECTS PAGE
@@ -775,6 +774,7 @@ body {
 /* =========================
    FOOTER
 ========================= */
+
 .footer {
   padding: 60px 8% 35px;
   background: transparent;
@@ -845,149 +845,234 @@ body {
 ========================= */
 
 @keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(26px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(26px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeDown {
-  from {
-    opacity: 0;
-    transform: translateY(-18px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(-18px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes nameReveal {
-  to {
-    transform: translateY(0);
-  }
+  to { transform: translateY(0); }
 }
 
 @keyframes blink {
-  0%, 45% {
-    opacity: 1;
-  }
-
-  46%, 100% {
-    opacity: 0;
-  }
+  0%, 45%   { opacity: 1; }
+  46%, 100% { opacity: 0; }
 }
 
 @keyframes gridMove {
-  from {
-    background-position: 0 0;
-  }
-
-  to {
-    background-position: 120px 120px;
-  }
+  from { background-position: 0 0; }
+  to   { background-position: 120px 120px; }
 }
 
 @keyframes orbOne {
-  from {
-    transform: translate(0, 0) scale(1);
-  }
-
-  to {
-    transform: translate(90px, 60px) scale(1.12);
-  }
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(90px, 60px) scale(1.12); }
 }
 
 @keyframes orbTwo {
-  from {
-    transform: translate(0, 0) scale(1);
-  }
-
-  to {
-    transform: translate(-80px, -40px) scale(1.14);
-  }
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(-80px, -40px) scale(1.14); }
 }
 
 @keyframes buttonPulse {
   0%, 100% {
-    box-shadow:
-      0 0 35px rgba(209, 162, 165, 0.24),
-      0 18px 50px rgba(0, 0, 0, 0.38);
+    box-shadow: 0 0 35px rgba(209, 162, 165, 0.24), 0 18px 50px rgba(0,0,0,0.38);
   }
-
   50% {
-    box-shadow:
-      0 0 52px rgba(209, 162, 165, 0.44),
-      0 22px 64px rgba(0, 0, 0, 0.48);
+    box-shadow: 0 0 52px rgba(209, 162, 165, 0.44), 0 22px 64px rgba(0,0,0,0.48);
   }
 }
 
 @keyframes footerGlow {
-  0%, 100% {
-    opacity: 0.42;
-  }
-
-  50% {
-    opacity: 0.78;
-  }
+  0%, 100% { opacity: 0.42; }
+  50%       { opacity: 0.78; }
 }
 
 @keyframes softFloat {
-  from {
-    transform: translate(0, 0) scale(1);
-  }
-
-  to {
-    transform: translate(-28px, 42px) scale(1.08);
-  }
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(-28px, 42px) scale(1.08); }
 }
 
 @keyframes softFloatTwo {
-  from {
-    transform: translate(0, 0) scale(1);
-  }
-
-  to {
-    transform: translate(40px, -26px) scale(1.12);
-  }
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(40px, -26px) scale(1.12); }
 }
 
 @keyframes statusPulse {
-  0%, 100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-
-  50% {
-    opacity: 0.55;
-    transform: scale(1.25);
-  }
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.55; transform: scale(1.25); }
 }
 
 @keyframes skillShine {
-  from {
-    transform: translateX(-120%);
-  }
-
-  to {
-    transform: translateX(120%);
-  }
+  from { transform: translateX(-120%); }
+  to   { transform: translateX(120%); }
 }
 
 @keyframes projectShine {
-  from {
-    transform: translateX(-120%);
-  }
+  from { transform: translateX(-120%); }
+  to   { transform: translateX(120%); }
+}
 
-  to {
-    transform: translateX(120%);
+/* =========================
+   PAGE FLIP + MOTION EFFECTS
+========================= */
+
+.about-clean.show {
+  animation: pageFlipIn 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.skills-page.show {
+  animation: pageSlideFlip 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.projects-page.show {
+  animation: projectPageEnter 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.footer.show {
+  animation: footerLift 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.about-heading {
+  animation: gentleFloatText 5s ease-in-out infinite alternate;
+}
+
+.about-text {
+  animation: textFadeSlide 1s ease 0.25s both;
+}
+
+.about-tags span {
+  animation: tagPop 0.7s ease both;
+}
+
+.about-tags span:nth-child(1) { animation-delay: 0.10s; }
+.about-tags span:nth-child(2) { animation-delay: 0.18s; }
+.about-tags span:nth-child(3) { animation-delay: 0.26s; }
+.about-tags span:nth-child(4) { animation-delay: 0.34s; }
+
+/* skill cards stagger */
+.skills-page.show .sk-card {
+  animation: skillFlipEnter 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.skills-page.show .sk-card:nth-child(1) { animation-delay: 0.08s; }
+.skills-page.show .sk-card:nth-child(2) { animation-delay: 0.18s; }
+.skills-page.show .sk-card:nth-child(3) { animation-delay: 0.28s; }
+.skills-page.show .sk-card:nth-child(4) { animation-delay: 0.38s; }
+.skills-page.show .sk-card:nth-child(5) { animation-delay: 0.48s; }
+
+.projects-page.show .project-single-card {
+  animation: cardPageTurn 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.project-preview img {
+  animation: previewFloat 5s ease-in-out infinite alternate;
+}
+
+.footer.show .footer-links a {
+  animation: footerButtonPop 0.65s ease both;
+}
+
+.footer.show .footer-links a:nth-child(1) { animation-delay: 0.08s; }
+.footer.show .footer-links a:nth-child(2) { animation-delay: 0.16s; }
+.footer.show .footer-links a:nth-child(3) { animation-delay: 0.24s; }
+.footer.show .footer-links a:nth-child(4) { animation-delay: 0.32s; }
+
+@keyframes pageFlipIn {
+  from {
+    opacity: 0;
+    transform: perspective(1200px) rotateX(18deg) translateY(90px) scale(0.96);
+    filter: blur(12px);
   }
+  to {
+    opacity: 1;
+    transform: perspective(1200px) rotateX(0deg) translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes pageSlideFlip {
+  from {
+    opacity: 0;
+    transform: perspective(1200px) rotateY(-12deg) translateX(-70px) scale(0.96);
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(1200px) rotateY(0deg) translateX(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes projectPageEnter {
+  from {
+    opacity: 0;
+    transform: perspective(1200px) rotateY(14deg) translateX(80px) scale(0.96);
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(1200px) rotateY(0deg) translateX(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes footerLift {
+  from { opacity: 0; transform: translateY(70px) scale(0.96); filter: blur(8px); }
+  to   { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+}
+
+@keyframes gentleFloatText {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-8px); }
+}
+
+@keyframes textFadeSlide {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes tagPop {
+  from { opacity: 0; transform: translateY(18px) scale(0.92); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes skillFlipEnter {
+  from {
+    opacity: 0;
+    transform: perspective(900px) rotateX(18deg) translateY(42px);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(900px) rotateX(0deg) translateY(0);
+  }
+}
+
+@keyframes cardPageTurn {
+  from {
+    opacity: 0;
+    transform: perspective(1200px) rotateY(-18deg) translateX(-60px) scale(0.96);
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(1200px) rotateY(0deg) translateX(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes previewFloat {
+  from { transform: translateY(0) scale(1); }
+  to   { transform: translateY(-12px) scale(1.03); }
+}
+
+@keyframes footerButtonPop {
+  from { opacity: 0; transform: translateY(18px) scale(0.9); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 /* =========================
@@ -1104,25 +1189,16 @@ body {
     padding: 4vh 22px 70px;
   }
 
-  .skill-box {
-    min-height: 110px;
-    padding: 22px;
-    align-items: flex-start;
-    flex-direction: column;
+  .skills-grid {
+    grid-template-columns: 1fr;
   }
 
-  .skill-box h3,
-  .skill-box.full h3 {
-    font-size: 34px;
-    text-align: left;
+  .sk-wide {
+    grid-column: span 1;
   }
 
-  .skill-box p {
-    text-align: left;
-  }
-
-  .skill-box.full {
-    min-height: 230px;
+  .sk-list-grid {
+    grid-template-columns: 1fr;
   }
 
   .projects-label {
@@ -1176,9 +1252,8 @@ body {
     padding: 9px 13px;
   }
 
-  .skill-box h3,
-  .skill-box.full h3 {
-    font-size: 30px;
+  .sk-name {
+    font-size: 15px;
   }
 
   .project-actions .project-icon {
@@ -1192,248 +1267,5 @@ body {
     animation: none !important;
     transition: none !important;
     scroll-behavior: auto !important;
-  }
-}
-
-
-
-
-/* =========================
-   PAGE FLIP + MOTION EFFECTS
-========================= */
-
-.about-clean.show {
-  animation: pageFlipIn 1s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
-.skills-page.show {
-  animation: pageSlideFlip 1s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
-.projects-page.show {
-  animation: projectPageEnter 1s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
-.footer.show {
-  animation: footerLift 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
-/* About text movement */
-.about-heading {
-  animation: gentleFloatText 5s ease-in-out infinite alternate;
-}
-
-.about-text {
-  animation: textFadeSlide 1s ease 0.25s both;
-}
-
-.about-tags span {
-  animation: tagPop 0.7s ease both;
-}
-
-.about-tags span:nth-child(1) {
-  animation-delay: 0.1s;
-}
-
-.about-tags span:nth-child(2) {
-  animation-delay: 0.18s;
-}
-
-.about-tags span:nth-child(3) {
-  animation-delay: 0.26s;
-}
-
-.about-tags span:nth-child(4) {
-  animation-delay: 0.34s;
-}
-
-/* Skill boxes stagger flip */
-.skills-page.show .skill-box {
-  animation: skillFlipEnter 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
-.skills-page.show .skill-box:nth-child(1) {
-  animation-delay: 0.08s;
-}
-
-.skills-page.show .skill-box:nth-child(2) {
-  animation-delay: 0.18s;
-}
-
-.skills-page.show .skill-box:nth-child(3) {
-  animation-delay: 0.28s;
-}
-
-.skills-page.show .skill-box:nth-child(4) {
-  animation-delay: 0.38s;
-}
-
-/* Project card page-turn entry */
-.projects-page.show .project-single-card {
-  animation: cardPageTurn 1s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
-.project-preview img {
-  animation: previewFloat 5s ease-in-out infinite alternate;
-}
-
-/* Footer buttons movement */
-.footer.show .footer-links a {
-  animation: footerButtonPop 0.65s ease both;
-}
-
-.footer.show .footer-links a:nth-child(1) {
-  animation-delay: 0.08s;
-}
-
-.footer.show .footer-links a:nth-child(2) {
-  animation-delay: 0.16s;
-}
-
-.footer.show .footer-links a:nth-child(3) {
-  animation-delay: 0.24s;
-}
-
-.footer.show .footer-links a:nth-child(4) {
-  animation-delay: 0.32s;
-}
-
-/* Keyframes */
-
-@keyframes pageFlipIn {
-  from {
-    opacity: 0;
-    transform: perspective(1200px) rotateX(18deg) translateY(90px) scale(0.96);
-    filter: blur(12px);
-  }
-
-  to {
-    opacity: 1;
-    transform: perspective(1200px) rotateX(0deg) translateY(0) scale(1);
-    filter: blur(0);
-  }
-}
-
-@keyframes pageSlideFlip {
-  from {
-    opacity: 0;
-    transform: perspective(1200px) rotateY(-12deg) translateX(-70px) scale(0.96);
-    filter: blur(10px);
-  }
-
-  to {
-    opacity: 1;
-    transform: perspective(1200px) rotateY(0deg) translateX(0) scale(1);
-    filter: blur(0);
-  }
-}
-
-@keyframes projectPageEnter {
-  from {
-    opacity: 0;
-    transform: perspective(1200px) rotateY(14deg) translateX(80px) scale(0.96);
-    filter: blur(10px);
-  }
-
-  to {
-    opacity: 1;
-    transform: perspective(1200px) rotateY(0deg) translateX(0) scale(1);
-    filter: blur(0);
-  }
-}
-
-@keyframes footerLift {
-  from {
-    opacity: 0;
-    transform: translateY(70px) scale(0.96);
-    filter: blur(8px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    filter: blur(0);
-  }
-}
-
-@keyframes gentleFloatText {
-  from {
-    transform: translateY(0);
-  }
-
-  to {
-    transform: translateY(-8px);
-  }
-}
-
-@keyframes textFadeSlide {
-  from {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes tagPop {
-  from {
-    opacity: 0;
-    transform: translateY(18px) scale(0.92);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-@keyframes skillFlipEnter {
-  from {
-    opacity: 0;
-    transform: perspective(900px) rotateX(18deg) translateY(42px);
-  }
-
-  to {
-    opacity: 1;
-    transform: perspective(900px) rotateX(0deg) translateY(0);
-  }
-}
-
-@keyframes cardPageTurn {
-  from {
-    opacity: 0;
-    transform: perspective(1200px) rotateY(-18deg) translateX(-60px) scale(0.96);
-    filter: blur(10px);
-  }
-
-  to {
-    opacity: 1;
-    transform: perspective(1200px) rotateY(0deg) translateX(0) scale(1);
-    filter: blur(0);
-  }
-}
-
-@keyframes previewFloat {
-  from {
-    transform: translateY(0) scale(1);
-  }
-
-  to {
-    transform: translateY(-12px) scale(1.03);
-  }
-}
-
-@keyframes footerButtonPop {
-  from {
-    opacity: 0;
-    transform: translateY(18px) scale(0.9);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
   }
 }
