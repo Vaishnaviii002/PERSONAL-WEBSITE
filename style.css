@@ -306,7 +306,7 @@ body {
   font-size: 20px;
   font-weight: 500;
   letter-spacing: 5px;
-  text-transform: lowercase;
+  /* text-transform: lowercase; */
   color: rgba(242, 226, 224, 0.54);
 }
 
@@ -422,20 +422,22 @@ body {
 .highlight-card p {
   font-size: 13px;
   color: rgba(242, 226, 224, 0.62);
+  
 }
 
 .label {
   font-size: 40px;
   font-weight: 500;
   letter-spacing: 5px;
-  text-transform: lowercase;
+  margin-bottom: 150px;
+  /* text-transform: lowercase; */
   color: rgba(242, 226, 224, 0.54);
 }
 
 /* =========================
    SKILLS PAGE
 ========================= */
-
+/* 
 .skills-page {
   position: relative;
   z-index: 2;
@@ -454,7 +456,6 @@ body {
   max-width: 1050px;
 }
 
-/* card */
 .sk-card {
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(242, 226, 224, 0.12);
@@ -475,7 +476,6 @@ body {
   grid-column: span 2;
 }
 
-/* card header */
 .sk-top {
   display: flex;
   align-items: center;
@@ -497,15 +497,15 @@ body {
 .sk-icon.be { background: rgba(196, 181, 253, 0.12); color: #c4b5fd; }
 .sk-icon.db { background: rgba(110, 231, 183, 0.12); color: #6ee7b7; }
 .sk-icon.dv { background: rgba(252, 165, 165, 0.12); color: #fca5a5; }
-.sk-icon.ai { background: rgba(249, 168, 212, 0.12); color: #f9a8d4; }
+.sk-icon.ai { background: rgba(249, 168, 212, 0.12); color: #f9a8d4; } */
 
-.sk-cat {
+/* .sk-cat {
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-}
-
+} */
+/* 
 .sk-cat.fe { color: #7dd3fc; }
 .sk-cat.be { color: #c4b5fd; }
 .sk-cat.db { color: #6ee7b7; }
@@ -520,7 +520,6 @@ body {
   letter-spacing: -0.3px;
 }
 
-/* skill list */
 .sk-list {
   list-style: none;
   padding: 0;
@@ -558,6 +557,210 @@ body {
 .sk-list li.db::before { background: #6ee7b7; }
 .sk-list li.dv::before { background: #fca5a5; }
 .sk-list li.ai::before { background: #f9a8d4; }
+ */
+
+
+/* =========================
+   SKILLS SECTION
+========================= */
+
+.skills-page {
+  position: relative;
+  z-index: 2;
+  width: 90%;
+  min-height: 100vh;
+  padding: 10vh 8% 90px 15%;
+  background: transparent;
+}
+
+.skills-grid {
+  width: 100%;
+  max-width: 1320px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 15px;
+  align-items: stretch;
+}
+
+.sk-card {
+  min-height: 330px;
+  padding: 26px;
+  border-radius: 24px;
+  margin-bottom: 100px;
+
+  background: rgba(255, 255, 255, 0.075);
+  border: 1px solid rgba(242, 226, 224, 0.15);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  transition: 0.35s ease;
+}
+
+.sk-card:hover {
+  transform: translateY(-6px);
+  background: rgba(255, 255, 255, 0.11);
+  border-color: rgba(242, 226, 224, 0.3);
+  box-shadow:
+    0 24px 70px rgba(0, 0, 0, 0.22),
+    0 0 40px rgba(209, 162, 165, 0.08);
+}
+
+/* remove wide layout for database */
+.sk-wide {
+  grid-column: auto;
+}
+
+.sk-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 26px;
+}
+
+.sk-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+}
+
+.sk-cat {
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+/* category colors */
+.sk-icon.fe {
+  color: #7dd3fc;
+  background: rgba(125, 211, 252, 0.12);
+}
+
+.sk-cat.fe,
+.sk-list li.fe::marker {
+  color: #7dd3fc;
+}
+
+.sk-icon.be {
+  color: #c4b5fd;
+  background: rgba(196, 181, 253, 0.12);
+}
+
+.sk-cat.be,
+.sk-list li.be::marker {
+  color: #c4b5fd;
+}
+
+.sk-icon.db {
+  color: #6ee7b7;
+  background: rgba(110, 231, 183, 0.12);
+}
+
+.sk-cat.db,
+.sk-list li.db::marker {
+  color: #6ee7b7;
+}
+
+.sk-icon.dv {
+  color: #fca5a5;
+  background: rgba(252, 165, 165, 0.12);
+}
+
+.sk-cat.dv,
+.sk-list li.dv::marker {
+  color: #fca5a5;
+}
+
+.sk-icon.ai {
+  color: #f9a8d4;
+  background: rgba(249, 168, 212, 0.12);
+}
+
+.sk-cat.ai,
+.sk-list li.ai::marker {
+  color: #f9a8d4;
+}
+
+.sk-name {
+  color: #f2e2e0;
+  font-size: 21px;
+  line-height: 1.25;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.sk-list {
+  list-style-position: inside;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: rgba(242, 226, 224, 0.68);
+}
+
+.sk-list li {
+  font-size: 14px;
+  line-height: 1.45;
+  font-weight: 600;
+}
+
+/* database list one column */
+.sk-list-grid {
+  display: flex !important;
+  flex-direction: column !important;
+  grid-template-columns: 1fr !important;
+  columns: 1 !important;
+  column-count: 1 !important;
+}
+
+.sk-list-grid li {
+  width: 100%;
+}
+
+/* responsive */
+@media (max-width: 1300px) {
+  .skills-grid {
+    grid-template-columns: repeat(5, minmax(220px, 1fr));
+    overflow-x: auto;
+    padding-bottom: 10px;
+  }
+
+  .sk-card {
+    min-width: 220px;
+  }
+}
+
+@media (max-width: 700px) {
+  .skills-page {
+    padding: 10vh 22px 70px 22px;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(5, 220px);
+    overflow-x: auto;
+  }
+
+  .sk-card {
+    min-height: 300px;
+    padding: 22px;
+  }
+
+  .sk-name {
+    font-size: 19px;
+  }
+
+  .sk-list li {
+    font-size: 13px;
+  }
+}
+
+
+
 
 /* =========================
    PROJECTS PAGE
@@ -577,9 +780,12 @@ body {
   font-size: 40px;
   font-weight: 800;
   letter-spacing: 5px;
-  text-transform: lowercase;
+  
+  
+  /* text-transform: lowercase; */
   color: rgba(242, 226, 224, 0.54);
   margin-bottom: 100px;
+  margin-top: 50px;
 }
 
 .project-single-card {
@@ -711,6 +917,48 @@ body {
   transition: 0.3s ease;
 }
 
+.project-actions.icon-actions {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-top: 34px;
+}
+
+.visit-platform-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 22px;
+  border-radius: 999px;
+
+  text-decoration: none;
+  color: #f2e2e0;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1;
+
+  background: rgba(255, 255, 255, 0.249);
+  border: 1px solid rgba(242, 226, 224, 0.16);
+
+  box-shadow:
+    inset 0 0 18px rgba(255, 255, 255, 0.02),
+    0 12px 28px rgba(0, 0, 0, 0.18);
+
+  transition: 0.3s ease;
+}
+
+.visit-platform-btn:hover {
+  color: #ffffff;
+  text-decoration: none;
+  transform: translateY(-4px);
+  background: rgba(209, 162, 165, 0.18);
+  border-color: rgba(209, 162, 165, 0.35);
+  box-shadow:
+    0 18px 42px rgba(0, 0, 0, 0.26),
+    0 0 34px rgba(209, 162, 165, 0.14);
+}
+
 .github-icon {
   color: #d1d5db;
   background: transparent;
@@ -719,10 +967,29 @@ body {
 
 .visit-icon {
   background: #ffffff;
-  color: #111827;
+  color: #1f2533;
   font-size: 28px;
   font-weight: 500;
   border: none;
+}
+
+.icon-link {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  text-decoration: none;
+  color: #f2e2e0;
+  background: transparent;
+  border: none;
+  transition: 0.3s ease;
+}
+
+.icon-link svg {
+  width: 25px;
+  height: 25px;
+  fill: currentColor;
 }
 
 .project-icon:hover {
@@ -733,10 +1000,7 @@ body {
   color: #ffffff;
 }
 
-.visit-icon:hover {
-  background: #c4b5fd;
-  color: #050816;
-}
+
 
 .project-preview {
   position: relative;
@@ -769,7 +1033,40 @@ body {
   transform: scale(1.07);
   opacity: 1;
   filter: brightness(1.05);
+} 
+
+
+/* FIX: proper space between project cards */
+.project-showcase {
+  position: relative;
+  width: 100%;
+  max-width: 1050px;
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  perspective: none;
 }
+
+.project-single-card,
+.project-single-card:nth-child(1),
+.project-single-card:nth-child(2),
+.project-showcase:hover .project-single-card:nth-child(1),
+.project-showcase:hover .project-single-card:nth-child(2) {
+  position: relative;
+  top: auto;
+  left: auto;
+  transform: none;
+  opacity: 1;
+}
+
+.project-single-card:nth-child(2) .project-description,
+.project-single-card:nth-child(2) .project-tech,
+.project-single-card:nth-child(2) .project-actions,
+.project-single-card:nth-child(2) .project-preview {
+  opacity: 1;
+}
+
 
 /* =========================
    FOOTER
@@ -779,7 +1076,8 @@ body {
   padding: 60px 8% 35px;
   background: transparent;
   color: #ffffff;
-  border-top: none;
+  border-top: 800px;
+  margin-top: 100px;
 }
 
 .footer-content {
