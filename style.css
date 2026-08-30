@@ -1,4 +1,4 @@
-* {
+/* * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -1514,7 +1514,7 @@ body {
     transition: none !important;
     scroll-behavior: auto !important;
   }
-}
+} */
 
 
 
@@ -1569,7 +1569,13 @@ body {
 
 
 
-/* * {
+
+
+
+
+
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -1586,9 +1592,7 @@ body {
   overflow-x: hidden;
 }
 
-=========================
-   FRONT PAGE
-=========================
+
 
 .splash {
   position: fixed;
@@ -1753,9 +1757,7 @@ body {
   animation: footerGlow 2.8s ease-in-out infinite;
 }
 
-=========================
-   MAIN SITE BACKGROUND
-=========================
+
 
 .site {
   opacity: 0;
@@ -1791,9 +1793,7 @@ body {
   animation: orbTwo 8s ease-in-out infinite alternate;
 }
 
-=========================
-   MAIN CONTENT
-=========================
+
 
 .page-wrap {
   position: relative;
@@ -1821,9 +1821,7 @@ body {
   filter: blur(0);
 }
 
-=========================
-   ABOUT PAGE
-=========================
+
 
 .about-clean,
 #about {
@@ -2005,9 +2003,7 @@ body {
   color: rgba(242, 226, 224, 0.54);
 }
 
-=========================
-   SKILLS SECTION
-=========================
+
 
 .skills-page {
   position: relative;
@@ -2204,9 +2200,7 @@ body {
   }
 }
 
-=========================
-   PROJECTS PAGE
-=========================
+
 
 .projects-page {
   position: relative;
@@ -2543,9 +2537,7 @@ body {
   opacity: 1;
 }
 
-=========================
-   FOOTER
-=========================
+
 
 .footer {
   padding: 60px 8% 35px;
@@ -2613,9 +2605,7 @@ body {
   margin-bottom: 0 !important;
 }
 
-=========================
-   ANIMATIONS
-=========================
+
 
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(26px); }
@@ -2690,9 +2680,7 @@ body {
   to   { transform: translateX(120%); }
 }
 
-=========================
-   PAGE FLIP + MOTION EFFECTS
-=========================
+
 
 .about-clean.show {
   animation: pageFlipIn 1s cubic-bezier(0.22, 1, 0.36, 1) both;
@@ -2848,9 +2836,6 @@ body {
   to   { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-=========================
-   RESPONSIVE
-=========================
 
 @media (max-width: 1000px) {
   .about-clean,
@@ -3041,4 +3026,4 @@ body {
     transition: none !important;
     scroll-behavior: auto !important;
   }
-} */
+}
