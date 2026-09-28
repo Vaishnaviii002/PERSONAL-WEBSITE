@@ -1,4 +1,4 @@
-/* * {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -14,20 +14,6 @@ body {
   color: #f2e2e0;
   overflow-x: hidden;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1514,7 +1500,7 @@ body {
     transition: none !important;
     scroll-behavior: auto !important;
   }
-} */
+}
 
 
 
@@ -1575,7 +1561,7 @@ body {
 
 
 
-* {
+/* * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -3026,4 +3012,4 @@ body {
     transition: none !important;
     scroll-behavior: auto !important;
   }
-}
+} */
